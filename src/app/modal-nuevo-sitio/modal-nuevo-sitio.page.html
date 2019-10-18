@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button text="" (click)="cerrarModal()"><ion-icon slot="icon-only" name="arrow-back"></ion-icon></ion-button>
+      </ion-buttons>
+      <ion-title>Nuevo Sitio</ion-title>
+    </ion-toolbar>
+   </ion-header>
+    
+   <ion-content>
+    <ion-card>
+      <ion-card-header>
+        Localización actual
+      </ion-card-header>
+      <ion-card-content>
+        <p><strong>lat:</strong>{{ lat }}<br/>
+        <strong>lng:</strong>{{ lon }}</p>
+        <form (ngSubmit)="guardarSitio()">
+        <div>
+          <img [src]="preview" *ngIf="foto" />
+        </div>
+        <div class="ion-text-center">
+          <ion-button type="button" (click)="sacarFoto()">
+            Foto&nbsp;&nbsp;        
+            <ion-icon slot="start" name="camera"></ion-icon>
+          </ion-button>
+        </div>
+        <ion-item>
+            <ion-label position="floating">Description</ion-label>
+            <ion-textarea [(ngModel)]="description" name="description"></ion-textarea>
+          </ion-item>
+        <ion-button type="submit" expand="block">
+          Guardar Sitio
+        <ion-icon slot="start" name="save"></ion-icon>
+        </ion-button>
+      </form>
+    </ion-card-content>
+   </ion-card>
+   </ion-content>
+   
